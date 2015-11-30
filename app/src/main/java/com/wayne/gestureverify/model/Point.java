@@ -27,17 +27,16 @@ public class Point {
     private int centerX;
     private int centerY;
 
-    public Point(int left, int top, int right, int bottom, int centerX, int centerY, int num,
-            ImageView image, int state) {
+    public Point(int left, int top, int right, int bottom, int num, ImageView image) {
         this.left = left;
         this.top = top;
         this.right = right;
         this.bottom = bottom;
-        this.centerX = centerX;
-        this.centerY = centerY;
         this.num = num;
         this.imageView = image;
-        this.state = state;
+        this.state = STATE_NORMAL;
+        this.centerX = (left + right) / 2;
+        this.centerY = (top + bottom) / 2;
     }
 
     public int getLeft() {
