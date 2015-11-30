@@ -1,3 +1,5 @@
 <resources>
-    <string name="app_name">GestureVerify</string>
+    <string name="app_name">手势密码</string>
+    <string name="set_sec_code">设置手势密码</string>
+    <string name="verify_sec_code">校验手势密码</string>
 </resources>
