@@ -76,11 +76,12 @@ public class VerifyContentView extends ViewGroup {
         }
     }
 
-    public void addDrawLineView(ViewGroup parent) {
+    public void setParentView(ViewGroup parent) {
         int with = MobileInfo.getScreenMetrics(mContext).widthPixels;
         LayoutParams params = new LayoutParams(with, with);
         setLayoutParams(params);
         mDrawLineView.setLayoutParams(params);
+        parent.addView(this);
         parent.addView(mDrawLineView);
     }
 
