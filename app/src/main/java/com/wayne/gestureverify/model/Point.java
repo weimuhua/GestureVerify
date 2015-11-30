@@ -24,12 +24,17 @@ public class Point {
     private ImageView imageView;
     /** 当前的状态 */
     private int state;
+    private int centerX;
+    private int centerY;
 
-    public Point(int left, int top, int right, int bottom, int num, ImageView image, int state) {
+    public Point(int left, int top, int right, int bottom, int centerX, int centerY, int num,
+            ImageView image, int state) {
         this.left = left;
         this.top = top;
         this.right = right;
         this.bottom = bottom;
+        this.centerX = centerX;
+        this.centerY = centerY;
         this.num = num;
         this.imageView = image;
         this.state = state;
@@ -65,6 +70,22 @@ public class Point {
 
     public void setBottom(int bottom) {
         this.bottom = bottom;
+    }
+
+    public int getCenterX() {
+        return centerX;
+    }
+
+    public void setCenterX(int centerX) {
+        this.centerX = centerX;
+    }
+
+    public int getCenterY() {
+        return centerY;
+    }
+
+    public void setCenterY(int centerY) {
+        this.centerY = centerY;
     }
 
     public int getNum() {
