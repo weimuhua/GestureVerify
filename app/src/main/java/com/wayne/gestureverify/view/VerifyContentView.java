@@ -7,7 +7,7 @@ import android.widget.ImageView;
 
 import com.wayne.gestureverify.GestureCallback;
 import com.wayne.gestureverify.R;
-import com.wayne.gestureverify.model.Point;
+import com.wayne.gestureverify.model.GesturePoint;
 import com.wayne.gestureverify.utils.MobileInfo;
 
 import java.util.ArrayList;
@@ -25,7 +25,7 @@ public class VerifyContentView extends ViewGroup {
     private Context mContext;
     private boolean isVerify;
     private DrawLineView mDrawLineView;
-    private List<Point> mPointList;
+    private List<GesturePoint> mPointList;
 
     public VerifyContentView(Context cxt, boolean isVerify, String password, GestureCallback callback) {
         super(cxt);
@@ -71,7 +71,7 @@ public class VerifyContentView extends ViewGroup {
             int top = row * mPointLength + mPointLength / VERTICAL_POINT_GAP_NUM;
             int right = (column + 1) * mPointLength - mPointLength / HORIZONTAL_POINT_GAP_NUM;
             int bottom = (row + 1) * mPointLength - mPointLength / VERTICAL_POINT_GAP_NUM;
-            Point p = new Point(left, top, right, bottom, i + 1, image);
+            GesturePoint p = new GesturePoint(left, top, right, bottom, i + 1, image);
             mPointList.add(p);
         }
     }

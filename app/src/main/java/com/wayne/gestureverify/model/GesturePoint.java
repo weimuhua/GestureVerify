@@ -4,7 +4,7 @@ import android.widget.ImageView;
 
 import com.wayne.gestureverify.R;
 
-public class Point {
+public class GesturePoint {
 
     public static final int STATE_NORMAL = 1;
     public static final int STATE_SELECTED = 2;
@@ -27,7 +27,7 @@ public class Point {
     private int centerX;
     private int centerY;
 
-    public Point(int left, int top, int right, int bottom, int num, ImageView image) {
+    public GesturePoint(int left, int top, int right, int bottom, int num, ImageView image) {
         this.left = left;
         this.top = top;
         this.right = right;
