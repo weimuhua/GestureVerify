@@ -31,9 +31,9 @@ public class VerifyContentView extends ViewGroup {
         super(cxt);
         mContext = cxt;
         this.isVerify = isVerify;
+        mPointLength = MobileInfo.getScreenMetrics(mContext).widthPixels / HORIZONTAL_POINTS_COUNT;
         initChildList();
         mDrawLineView = new DrawLineView(mContext, mPointList, isVerify, password, callback);
-        mPointLength = MobileInfo.getScreenMetrics(mContext).widthPixels / HORIZONTAL_POINTS_COUNT;
     }
 
     @Override
@@ -80,8 +80,8 @@ public class VerifyContentView extends ViewGroup {
         int with = MobileInfo.getScreenMetrics(mContext).widthPixels;
         LayoutParams params = new LayoutParams(with, with);
         setLayoutParams(params);
-        mDrawLineView.setLayoutParams(params);
         parent.addView(this);
+        mDrawLineView.setLayoutParams(params);
         parent.addView(mDrawLineView);
     }
 
