@@ -64,12 +64,11 @@ public class DrawLineView extends View {
 
     @Override
     protected void onDraw(Canvas canvas) {
-        mCanvas.drawBitmap(mBitmap, 0, 0, null);
+        canvas.drawBitmap(mBitmap, 0, 0, null);
     }
 
     @Override
     public boolean onTouchEvent(MotionEvent event) {
-        mCanvas.drawLine(180, 190, 190, 540, mPaint);
         if (!mIsDrawEnable) {
             return true;
         }
@@ -98,21 +97,18 @@ public class DrawLineView extends View {
                 }
 
                 if (pointAt == null || mCurPoint.equals(pointAt)
-                        || mCurPoint.getState() == GesturePoint.STATE_SELECTED) {
+                        || pointAt.getState() == GesturePoint.STATE_SELECTED) {
                     //尚未划到下一个点，画一条线
-                    Log.d(TAG, "mCurPoint.getCenterX() : " + mCurPoint.getCenterX() + ", mCurPoint.getCenterY() : " + mCurPoint.getCenterY());
-                    Log.d(TAG, "positionX : " + positionX + ", positionY : " + positionY);
                     mCanvas.drawLine(mCurPoint.getCenterX(), mCurPoint.getCenterY(),
                             positionX, positionY, mPaint);
                 } else {
                     //划到下一个点了，在两点间画一条线
-                    Log.d(TAG, "else drawLine");
                     mCanvas.drawLine(mCurPoint.getCenterX(), mCurPoint.getCenterY(),
                             pointAt.getCenterX(), pointAt.getCenterY(), mPaint);
                     pointAt.setState(GesturePoint.STATE_SELECTED);
                     addBetweenPointIfNeed(mCurPoint, pointAt);
+                    mCurPoint = pointAt;
                 }
-                mCurPoint = pointAt;
                 invalidate();
                 break;
             case MotionEvent.ACTION_UP:
