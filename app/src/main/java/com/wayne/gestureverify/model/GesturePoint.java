@@ -39,10 +39,6 @@ public class GesturePoint {
         this.centerY = (top + bottom) / 2;
     }
 
-    public GesturePoint(GesturePoint point) {
-        this(point.getLeft(), point.getTop(), point.getRight(), point.getBottom(), point.getNum(), point.getImageView());
-    }
-
     public int getLeft() {
         return left;
     }
@@ -126,10 +122,5 @@ public class GesturePoint {
             default:
                 break;
         }
-    }
-
-    @Override
-    protected Object clone() throws CloneNotSupportedException {
-        return super.clone();
     }
 }
